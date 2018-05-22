@@ -11,13 +11,13 @@ import javafx.scene.paint.Color;
  *
  * @author hansel
  */
-public class character extends Thread {
+public class Character extends Thread {
 
     private int posiX, posiY, x, y, size;
     private ArrayList<Block> road, past;
     private int direction;
 
-    public character(int size, Block start) {
+    public Character(int size, Block start) {
         posiX = start.getX();
         posiY = start.getY();
         x = posiX * size;
@@ -61,7 +61,7 @@ public class character extends Thread {
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(character.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
                     case 1:
@@ -70,7 +70,7 @@ public class character extends Thread {
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(character.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
                     case 2:
@@ -79,7 +79,7 @@ public class character extends Thread {
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(character.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
                     case 3:
@@ -88,7 +88,7 @@ public class character extends Thread {
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(character.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
 

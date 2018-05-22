@@ -1,6 +1,6 @@
 package GUI;
 
-import domain.character;
+import domain.Character;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -24,16 +24,16 @@ import javafx.stage.WindowEvent;
  */
 public class Maze extends Application implements Runnable {
 
-    private final int WIDTH = 1200;
+    private final int WIDTH = 1350;
     private final int HEIGHT = 650;
     private Canvas mazeCanvas;
     private Pane pane;
     private GraphicsContext gcMaze;
-    private FileChooser fileChooserImage;
+    private FileChooser fileChooser;
     private Logic logic;
     private boolean val = false;
     private Thread thread;
-    private character pl;
+    private Character pl;
 
     @Override
     public void start(Stage primaryStage) {
@@ -46,7 +46,6 @@ public class Maze extends Application implements Runnable {
             }
         });
         primaryStage.resizableProperty().set(false);
-
         primaryStage.show();
     } // start
 
@@ -68,10 +67,10 @@ public class Maze extends Application implements Runnable {
         logic = new Logic();
         mazeCanvas = new Canvas(WIDTH, HEIGHT);
         gcMaze = mazeCanvas.getGraphicsContext2D();
-        this.fileChooserImage = new FileChooser();
-        this.fileChooserImage.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Extends", "*.jpg", "*.jpeg"));
+        this.fileChooser = new FileChooser();
+        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Extends", "*.jpg", "*.jpeg"));
         pane = new Pane(mazeCanvas);
-        logic.selectImage(primaryStage, gcMaze, fileChooserImage, mazeCanvas);
+        logic.selectImage(primaryStage, gcMaze, fileChooser, mazeCanvas);
         logic.createMaze();
         logic.drawMaze(gcMaze);
 
@@ -88,7 +87,7 @@ public class Maze extends Application implements Runnable {
         run.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pl = new character(30, logic.init());
+                pl = new Character(30, logic.init());
                 val = true;
                 pl.start();
             }
@@ -99,7 +98,7 @@ public class Maze extends Application implements Runnable {
         pane.getChildren().add(easy);
         pane.getChildren().add(medium);
         pane.getChildren().add(hard);
-        Scene scene = new Scene(pane, WIDTH + 150, HEIGHT);
+        Scene scene = new Scene(pane, WIDTH, HEIGHT);
         primaryStage.setScene(scene);
     } // init
 
