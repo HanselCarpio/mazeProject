@@ -69,20 +69,23 @@ public class Maze extends Application implements Runnable {
 
     public void init(Stage primaryStage) {
         Button run = new Button("run");
+        run.setMinSize(100, 30);
         run.relocate(1250, 200);
         
         Button easy = new Button("easy");
+        easy.setMinSize(100, 30);
         easy.relocate(1250, 300);
         
         Button medium = new Button("medium");
+        medium.setMinSize(100, 30);
         medium.relocate(1250, 400);
         
         Button hard = new Button("hard");
+        hard.setMinSize(100, 30);
         hard.relocate(1250, 500);
                 
         thread = new Thread(this);
         thread.start();
-//        logic = new Logic();
         mazeCanvas = new Canvas(WIDTH, HEIGHT);
         gcMaze = mazeCanvas.getGraphicsContext2D();
         this.fileChooser = new FileChooser();
@@ -103,6 +106,33 @@ public class Maze extends Application implements Runnable {
         });
         
         run.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pl = new Character(30, initMaze());
+                val = true;
+                pl.start();
+            }
+        });
+        
+        easy.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pl = new Character(30, initMaze());
+                val = true;
+                pl.start();
+            }
+        });
+        
+        medium.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pl = new Character(30, initMaze());
+                val = true;
+                pl.start();
+            }
+        });
+        
+        hard.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 pl = new Character(30, initMaze());
