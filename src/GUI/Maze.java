@@ -29,7 +29,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author hansel
+ * @author pablo
  */
 public class Maze extends Application implements Runnable {
 
