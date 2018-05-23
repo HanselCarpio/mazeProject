@@ -50,52 +50,8 @@ public class Character extends Thread {
     public void run() {
 
         while (flag) {
-            direction = new Random().nextInt(4);
-            System.err.println(road.get(cont).getNext().get(0).getX());
-            if (next(direction)) {
-
-                switch (direction) {
-                    case 0:
-                        while (this.road.get(cont).in(x, y)) {
-                            y += 1;
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    case 1:
-                        while (this.road.get(cont).in(x, y)) {
-                            x += 1;
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    case 2:
-                        while (this.road.get(cont).in(x, y)) {
-                            y -= 1;
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    case 3:
-                        while (this.road.get(cont).in(x, y)) {
-                            x -= 1;
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Character.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-
-                }
-                this.past.add(this.road.get(cont));
-                cont++;
-            }
+     
+            this.x+=1;
 
         }
     }

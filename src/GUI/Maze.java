@@ -171,7 +171,7 @@ public class Maze extends Application implements Runnable {
                 if (wait < 0) {
                     wait = 5;
                 }
-                Thread.sleep(wait);
+//                Thread.sleep(wait);
             }
 
         } catch (InterruptedException ex) {
