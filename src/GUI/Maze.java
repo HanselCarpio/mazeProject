@@ -50,7 +50,7 @@ public class Maze extends Application implements Runnable {
     } // start
 
     public void init(Stage primaryStage) {
-        Button run = new Button("RUN");
+        Button run = new Button("run");
         run.relocate(1250, 200);
         
         Button easy = new Button("easy");
