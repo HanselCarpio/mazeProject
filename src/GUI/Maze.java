@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -108,7 +109,11 @@ public class Maze extends Application implements Runnable {
         run.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pl = new Character(30, initMaze());
+                try {
+                    pl = new Character();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Maze.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 val = true;
                 pl.start();
             }
@@ -117,27 +122,39 @@ public class Maze extends Application implements Runnable {
         easy.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pl = new Character(30, initMaze());
-                val = true;
-                pl.start();
+                try {
+                    pl = new Character();
+                    val = true;
+                    pl.start();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Maze.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
         medium.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pl = new Character(30, initMaze());
-                val = true;
-                pl.start();
+                try {
+                    pl = new Character();
+                    val = true;
+                    pl.start();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Maze.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
         hard.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pl = new Character(30, initMaze());
-                val = true;
-                pl.start();
+                try {
+                    pl = new Character();
+                    val = true;
+                    pl.start();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Maze.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
