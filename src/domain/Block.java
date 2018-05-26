@@ -9,33 +9,33 @@ import java.util.ArrayList;
  */
 public class Block {
 
-    private int posiX, posiY, size;
+    private int x, y, pixelSize;
     private String type;
-    private ArrayList<Block> next;
+    private ArrayList<Block> arrayListBlock;
     private BufferedImage image;
 
     public Block(BufferedImage image, int x, int y, int size, String type) {
         this.image = image;
-        this.posiX = x;
-        this.posiY = y;
-        this.size = size;
+        this.x = x;
+        this.y = y;
+        this.pixelSize = size;
         this.type = type;
     }
 
     public int getX() {
-        return posiX;
+        return x;
     }
 
     public void setX(int x) {
-        this.posiX = x;
+        this.x = x;
     }
 
     public int getY() {
-        return posiY;
+        return y;
     }
 
     public void setY(int y) {
-        this.posiY = y;
+        this.y = y;
     }
 
     public String getType() {
@@ -43,11 +43,11 @@ public class Block {
     }
 
     public ArrayList<Block> getNext() {
-        return next;
+        return arrayListBlock;
     }
 
     public void setNext(ArrayList<Block> next) {
-        this.next = next;
+        this.arrayListBlock = next;
     }
 
     public BufferedImage getImage() {
@@ -58,14 +58,15 @@ public class Block {
         this.image = image;
     }
 
+    
     public boolean in(int xMouse, int yMouse) {
 
-        return (((xMouse >= this.posiX * size && xMouse < this.posiX * size + this.size) || (xMouse + size > this.posiX * size && xMouse + size < this.posiX * size + this.size)) && ((yMouse >= this.posiY * size && yMouse < this.posiY * size + this.size) || (yMouse + size >= this.posiY * size && yMouse + size < this.posiY * size + this.size)));
-    } 
-
+        return (((xMouse >= this.x*pixelSize && xMouse < this.x*pixelSize + this.pixelSize)||(xMouse+pixelSize > this.x*pixelSize && xMouse+pixelSize < this.x*pixelSize + this.pixelSize)) && ((yMouse >= this.y*pixelSize && yMouse < this.y*pixelSize + this.pixelSize)||(yMouse+pixelSize >= this.y*pixelSize && yMouse+pixelSize < this.y*pixelSize + this.pixelSize)));
+    }
+    
     public boolean pressMouse(int xMouse, int yMouse) {
-        if ((xMouse >= this.posiX * this.size && xMouse <= this.posiX * this.size + this.size)
-                && (yMouse >= this.posiY * this.size && yMouse <= this.posiY * this.size + this.size)) {
+        if ((xMouse >= this.x * this.pixelSize && xMouse <= this.x * this.pixelSize + this.pixelSize)
+                && (yMouse >= this.y * this.pixelSize && yMouse <= this.y * this.pixelSize + this.pixelSize)) {
             return true;
         }
         return false;
